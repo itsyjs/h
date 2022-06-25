@@ -28,6 +28,15 @@ test('children as array', () => {
   assert.is(h('div', [h('h1', 'Hi'), h('h2', 'Mom')]), '<div><h1>Hi</h1><h2>Mom</h2></div>')
   // 3rd arg
   assert.is(h('div', { class: 'foo' }, [h('h1', 'Hi'), h('h2', 'Mom')]), '<div class="foo"><h1>Hi</h1><h2>Mom</h2></div>')
+  // nested arrays
+  assert.is(h('div', [
+    h('h1', 'Hi'),
+    [
+      h('h2', 'Mom'),
+      h('h3', '!')
+    ],
+    [[[h('p', 'whoa, super deep')]]]
+  ]), '<div><h1>Hi</h1><h2>Mom</h2><h3>!</h3><p>whoa, super deep</p></div>')
 })
 
 test('children can be escaped - only available in the 3-arg form', () => {

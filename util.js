@@ -18,8 +18,11 @@ export const handleArgs = ([tag, attrsOrChildren, maybeChildren, opts]) => {
   }
   attrs ||= ''
   children ||= ''
-  if (Array.isArray(children)) children = children.join('')
+  if (Array.isArray(children)) children = children.flat(Infinity).join('')
   if (opts?.escape) children = htmlEscape(children)
-  if (attrs) attrs = stringifyAttrs(attrs)
+  if (attrs) {
+    if (!isObject(attrs)) throw 'h() received non-object attributes - attrs must be an object'
+    attrs = stringifyAttrs(attrs)
+  }
   return { attrs, children, isVoid }
 }
