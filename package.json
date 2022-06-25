@@ -1,0 +1,28 @@
+{
+  "name": "@itsy/h",
+  "version": "1.0.0",
+  "description": "A node html-string renderer with a similar API to Vue 3's h-function",
+  "main": "index.js",
+  "types": "./index.d.ts",
+  "type": "module",
+  "scripts": {
+    "test": "node test",
+    "preversion": "npm run test",
+    "version": "npm publish",
+    "postversion": "git push --follow-tags"
+  },
+  "keywords": [],
+  "author": "Dave Honneffer",
+  "license": "MIT",
+  "dependencies": {
+    "escape-goat": "^4.0.0",
+    "stringify-attributes": "^3.0.0"
+  },
+  "devDependencies": {
+    "uvu": "^0.5.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsyjs/h"
+  }
+}
