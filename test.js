@@ -37,6 +37,13 @@ test('children as array', () => {
     ],
     [[[h('p', 'whoa, super deep')]]]
   ]), '<div><h1>Hi</h1><h2>Mom</h2><h3>!</h3><p>whoa, super deep</p></div>')
+  // booleans are filtered
+  assert.is(h('div', [
+    true && h('h1', 'Hi'),
+    false && h('h2', 'Wombat'),
+    null && h('h3', 'Llama'),
+    h('h2', 'Mom')
+  ]), '<div><h1>Hi</h1><h2>Mom</h2></div>')
 })
 
 test('children can be escaped - only available in the 3-arg form', () => {
