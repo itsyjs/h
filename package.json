@@ -26,5 +26,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/itsyjs/h"
-  }
+  },
+  "packageManager": "pnpm@10.5.0"
 }
